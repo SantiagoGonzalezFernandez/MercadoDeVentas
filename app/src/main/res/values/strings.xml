@@ -11,4 +11,11 @@
     <string name="albert_ramos">Albert Ramos</string>
     <string name="verified">Verified</string>
     <string name="home">Home</string>
+    <string name="aboutus_uno">Fundada en 1999 por Marcos Galperin, la compañía dio sus primeros pasos cuando un equipo de emprendedores se sumaron al sueño de revolucionar el e-commerce en América Latina.</string>
+    <string name="aboutus_dos">Con más pasión que recursos, lograron poner en marcha el plan que el empresario argentino había empezado a amasar mientras cursaba un MBA en la Escuela de Negocios de la Universidad de Stanford.</string>
+    <string name="aboutus_tres">“La cultura emprendedora está en nuestro ADN y su efecto multiplicador escribe la historia de nuestro crecimiento y el del comercio electrónico en la región”, repite Galperin, subrayando los pilares de una empresa que llegó a cotizar en Nasdaq sin perder la esencia que explica cada uno de sus logros.</string>
+    <string name="aboutus_cuatro">“En Mercado Libre logramos democratizar el comercio electrónico en América Latina, permitiendo que millones de personas, desde cualquier lugar de su país, puedan adquirir productos a precios justos y que todos los vendedores, especialmente las PyMEs, cuenten con una plataforma de comercialización digital efectiva para concretar sus negocios. En este proceso que continúa, fuimos entendiendo que el sistema de pagos y el acceso a créditos son vitales para el desarrollo de todo emprendedor”, afirma Galperin.</string>
+    <string name="imagen_del_producto">Imagen Del Producto</string>
+    <string name="reloj_rolex_de_oro">Reloj Rolex de Oro</string>
+    <string name="_45000">$45000</string>
 </resources>
