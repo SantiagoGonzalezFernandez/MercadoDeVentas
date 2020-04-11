@@ -1,9 +1,12 @@
 package com.santiagogonzalez.mercadodeventas.Activities;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
@@ -11,6 +14,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.santiagogonzalez.mercadodeventas.Fragments.ListaProductosFragment;
@@ -37,6 +41,15 @@ public class MainActivity extends AppCompatActivity{
 
         NavController myNavController = Navigation.findNavController(this,R.id.MainActivity_fragment_navHostFragment);
         NavigationUI.setupWithNavController(myNavigationView, myNavController);
+
+        final TextView myFinalTextViewTitle = findViewById(R.id.MainActivity_TextView_TextTitle);
+
+        myNavController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
+            @Override
+            public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
+                myFinalTextViewTitle.setText(destination.getLabel());
+            }
+        });
     }
 
 }
