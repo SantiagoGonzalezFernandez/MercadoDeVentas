@@ -1,4 +1,4 @@
-package com.santiagogonzalez.mercadodeventas.Activities;
+package com.santiagogonzalez.mercadodeventas.View.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,14 +10,11 @@ import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
-import com.santiagogonzalez.mercadodeventas.Fragments.ListaProductosFragment;
 import com.santiagogonzalez.mercadodeventas.R;
 
 public class MainActivity extends AppCompatActivity{

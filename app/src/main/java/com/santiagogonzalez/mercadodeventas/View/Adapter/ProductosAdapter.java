@@ -1,30 +1,36 @@
-package com.santiagogonzalez.mercadodeventas.Adapters;
+package com.santiagogonzalez.mercadodeventas.View.Adapter;
 
 import android.app.Dialog;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.santiagogonzalez.mercadodeventas.Clases.ProductoInfo;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.santiagogonzalez.mercadodeventas.Model.Producto;
 import com.santiagogonzalez.mercadodeventas.R;
 
 import java.util.ArrayList;
 
 public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.ProductoViewHolder> {
 
-    ArrayList<ProductoInfo> myArrayListDeProductos;
-    Dialog myDialog;
+    private ArrayList<Producto> myArrayListDeProductos;
+    private Dialog myDialog;
+    private Context myContext;
 
-    public ProductosAdapter(ArrayList<ProductoInfo> myArrayListDeProductos){
+    public ProductosAdapter(Context myContext) {
+        this.myContext = myContext;
+        myArrayListDeProductos = new ArrayList<>();
+    }
+
+    public ProductosAdapter(ArrayList<Producto> myArrayListDeProductos){
         this.myArrayListDeProductos = myArrayListDeProductos;
     }
 
@@ -42,9 +48,13 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.Prod
                TextView myTextViewPrecioDelProducto = myDialog.findViewById(R.id.DescriptionProductFragment_TextView_PrecioDelProducto);
                ImageView myImageViewImagenDelProducto = myDialog.findViewById(R.id.DescriptionProductFragment_ImageView_ImagenDelProducto);
 
-               myTextViewNombreDelProducto.setText(myArrayListDeProductos.get(myProductoViewHolder.getAdapterPosition()).getMyStringNombreDelProducto());
-               myTextViewPrecioDelProducto.setText(myArrayListDeProductos.get(myProductoViewHolder.getAdapterPosition()).getMyStringPrecioDelProducto());
-               myImageViewImagenDelProducto.setImageResource(myArrayListDeProductos.get(myProductoViewHolder.getAdapterPosition()).getMyIntImagenDelProducto());
+               myTextViewNombreDelProducto.setText(myArrayListDeProductos.get(myProductoViewHolder.getAdapterPosition()).getMyStringTitulo());
+               myTextViewPrecioDelProducto.setText("$" + myArrayListDeProductos.get(myProductoViewHolder.getAdapterPosition()).getMyDoublePrecio());
+
+               Glide.with(myContext)
+                       .load(myArrayListDeProductos.get(myProductoViewHolder.getAdapterPosition()).getMyStringImagen())
+                       .diskCacheStrategy(DiskCacheStrategy.ALL)
+                       .into(myImageViewImagenDelProducto);
 
                myDialog.show();
            }
@@ -54,21 +64,30 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.Prod
     }
 
     public void onBindViewHolder(ProductoViewHolder holder, int position){
-          holder.myTextViewNombreDelProducto.setText(myArrayListDeProductos.get(position).getMyStringNombreDelProducto());
-          holder.myTextViewPrecioDelProducto.setText(myArrayListDeProductos.get(position).getMyStringPrecioDelProducto());
-          holder.myImageViewImagenDelProducto.setImageResource(myArrayListDeProductos.get(position).getMyIntImagenDelProducto());
+          holder.myTextViewNombreDelProducto.setText(myArrayListDeProductos.get(position).getMyStringTitulo());
+          holder.myTextViewPrecioDelProducto.setText("$" + myArrayListDeProductos.get(position).getMyDoublePrecio());
+
+        Glide.with(myContext)
+                .load(myArrayListDeProductos.get(position).getMyStringImagen())
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(holder.myImageViewImagenDelProducto);
     }
 
     public int getItemCount(){
         return myArrayListDeProductos.size();
     }
 
+    public void adicionarListaProductos(ArrayList<Producto> myProductoArrayList) {
+        myArrayListDeProductos.addAll(myProductoArrayList);
+        notifyDataSetChanged();
+    }
+
     public class ProductoViewHolder extends RecyclerView.ViewHolder{
 
-        LinearLayout myLinearLayoutCeldaDelProducto;
-        TextView myTextViewNombreDelProducto;
-        TextView myTextViewPrecioDelProducto;
-        ImageView myImageViewImagenDelProducto;
+        private LinearLayout myLinearLayoutCeldaDelProducto;
+        private TextView myTextViewNombreDelProducto;
+        private TextView myTextViewPrecioDelProducto;
+        private ImageView myImageViewImagenDelProducto;
 
         public ProductoViewHolder(@NonNull View itemView) {
             super(itemView);

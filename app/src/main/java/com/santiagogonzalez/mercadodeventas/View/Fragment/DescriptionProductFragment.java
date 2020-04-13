@@ -1,4 +1,4 @@
-package com.santiagogonzalez.mercadodeventas.Fragments;
+package com.santiagogonzalez.mercadodeventas.View.Fragment;
 
 
 import android.os.Bundle;

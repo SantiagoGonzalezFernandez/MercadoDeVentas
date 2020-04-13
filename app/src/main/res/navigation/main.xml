@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/menuHome"
-        android:name="com.santiagogonzalez.mercadodeventas.Fragments.ListaProductosFragment"
+        android:name="com.santiagogonzalez.mercadodeventas.View.Fragment.ListaProductosFragment"
         android:label="Home"
         tools:layout="@layout/fragment_lista_productos" />
     <fragment
         android:id="@+id/menuAboutUs"
-        android:name="com.santiagogonzalez.mercadodeventas.Fragments.AboutUsFragment"
+        android:name="com.santiagogonzalez.mercadodeventas.View.Fragment.AboutUsFragment"
         android:label="About Us"
         tools:layout="@layout/fragment_about_us" />
 </navigation>
