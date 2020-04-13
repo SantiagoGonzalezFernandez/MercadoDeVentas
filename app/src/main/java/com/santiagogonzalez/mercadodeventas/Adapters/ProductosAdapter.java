@@ -46,7 +46,6 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.Prod
                myTextViewPrecioDelProducto.setText(myArrayListDeProductos.get(myProductoViewHolder.getAdapterPosition()).getMyStringPrecioDelProducto());
                myImageViewImagenDelProducto.setImageResource(myArrayListDeProductos.get(myProductoViewHolder.getAdapterPosition()).getMyIntImagenDelProducto());
 
-               Toast.makeText(view.getContext(), "Test Click " + String.valueOf(myProductoViewHolder.getAdapterPosition()), Toast.LENGTH_SHORT).show();
                myDialog.show();
            }
        });

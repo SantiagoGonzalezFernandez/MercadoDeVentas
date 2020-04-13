@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@android:color/background_dark">
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/LayoutNavigationHeader_RoundedImageView_ImageProfile"
@@ -29,18 +30,18 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:text="@string/albert_ramos"
-        android:textColor="@android:color/background_dark"
+        android:textColor="@android:color/background_light"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/LayoutNavigationHeader_View_ViewSupporter"
-        app:layout_constraintStart_toEndOf="@id/LayoutNavigationHeader_RoundedImageView_ImageProfile"/>
+        app:layout_constraintStart_toEndOf="@id/LayoutNavigationHeader_RoundedImageView_ImageProfile" />
 
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:text="@string/verified"
-        android:textColor="@android:color/holo_green_light"
+        android:textColor="@color/colorAccent"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@id/LayoutNavigationHeader_RoundedImageView_ImageProfile"
         app:layout_constraintTop_toBottomOf="@id/LayoutNavigationHeader_View_ViewSupporter"/>
