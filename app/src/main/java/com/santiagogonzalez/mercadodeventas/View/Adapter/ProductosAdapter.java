@@ -82,6 +82,11 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.Prod
         notifyDataSetChanged();
     }
 
+    public void setMyArrayListDeProductos(ArrayList<Producto> myArrayListDeProductos) {
+        this.myArrayListDeProductos = myArrayListDeProductos;
+        notifyDataSetChanged();
+    }
+
     public class ProductoViewHolder extends RecyclerView.ViewHolder{
 
         private LinearLayout myLinearLayoutCeldaDelProducto;

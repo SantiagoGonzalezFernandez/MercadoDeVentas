@@ -39,6 +39,7 @@
                 android:text="@string/nombre_app"
                 android:textColor="@android:color/background_light"
                 android:textSize="18sp"
+                android:layout_weight="1"
                 android:textStyle="bold"/>
 
         </LinearLayout>

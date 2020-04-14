@@ -5,9 +5,43 @@
     android:layout_height="match_parent"
     tools:context=".View.Fragment.ListaProductosFragment">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:background="@color/colorGray">
+
+        <EditText
+            android:id="@+id/ListaProductosFragments_EditText_SearchEditText"
+            android:layout_width="335dp"
+            android:layout_height="25dp"
+            android:background="@drawable/search_fragmnet_lista_productos"
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:hint="@string/que_busca"
+            android:textColorHint="@android:color/background_light"
+            android:textColor="@android:color/background_light"
+            android:textSize="15sp"
+            android:textAlignment="center"
+            android:inputType="text"
+            tools:ignore="Autofill" />
+
+        <ImageButton
+            android:id="@+id/ListaProductosFragments_ImageButton_SearchBoton"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_search"
+            android:background="@color/colorGray"
+            android:contentDescription="@string/boton_de_search" />
+
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ListaProductosFragments_RecyclerView_ListaDeProductos"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"/>
 
 </FrameLayout>
