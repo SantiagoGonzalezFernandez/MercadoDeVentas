@@ -67,15 +67,28 @@ public class ListaProductosFragment extends Fragment {
                              Bundle savedInstanceState) {
         View myView = inflater.inflate(R.layout.fragment_lista_productos,container,false);
 
-        myImageButtonSearch = myView.findViewById(R.id.ListaProductosFragments_ImageButton_SearchBoton);
-        myEditTextSearch = myView.findViewById(R.id.ListaProductosFragments_EditText_SearchEditText);
+        encontrarComponentesPorId(myView);
 
-        myRecyclerViewProductos = myView.findViewById(R.id.ListaProductosFragments_RecyclerView_ListaDeProductos);
-        myProductosAdapter = new ProductosAdapter(getContext());
-        myRecyclerViewProductos.setAdapter(myProductosAdapter);
-        final LinearLayoutManager myLinearLayoutManager = new LinearLayoutManager(getContext());
-        myRecyclerViewProductos.setLayoutManager(myLinearLayoutManager);
+        configurarRecyclerView();
 
+        configuroBotonSearch();
+
+        configuroRetrofit();
+
+        return myView;
+    }
+
+    private void configuroRetrofit() {
+        myRetrofit = new Retrofit.Builder()
+                .baseUrl("https://api.mercadolibre.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        myBooleanAptoParaCargar = true;
+        myIntegerOffset = 0 ;
+    }
+
+    private void configuroBotonSearch() {
         myImageButtonSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,6 +97,13 @@ public class ListaProductosFragment extends Fragment {
                 obtenerDatos(myIntegerOffset,myStringProductoBuscado);
             }
         });
+    }
+
+    private void configurarRecyclerView() {
+        myProductosAdapter = new ProductosAdapter(getContext());
+        myRecyclerViewProductos.setAdapter(myProductosAdapter);
+        final LinearLayoutManager myLinearLayoutManager = new LinearLayoutManager(getContext());
+        myRecyclerViewProductos.setLayoutManager(myLinearLayoutManager);
 
         myRecyclerViewProductos.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -108,16 +128,12 @@ public class ListaProductosFragment extends Fragment {
                 }
             }
         });
+    }
 
-        myRetrofit = new Retrofit.Builder()
-                .baseUrl("https://api.mercadolibre.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        myBooleanAptoParaCargar = true;
-        myIntegerOffset = 0 ;
-
-        return myView;
+    public void encontrarComponentesPorId(View myView){
+        myImageButtonSearch = myView.findViewById(R.id.ListaProductosFragments_ImageButton_SearchBoton);
+        myEditTextSearch = myView.findViewById(R.id.ListaProductosFragments_EditText_SearchEditText);
+        myRecyclerViewProductos = myView.findViewById(R.id.ListaProductosFragments_RecyclerView_ListaDeProductos);
     }
 
     private void obtenerDatos(Integer myIntegerOffset, String myStringQuery) {

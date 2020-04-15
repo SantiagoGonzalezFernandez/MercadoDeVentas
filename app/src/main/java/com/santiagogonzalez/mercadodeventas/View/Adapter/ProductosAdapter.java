@@ -96,7 +96,6 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.Prod
 
         public ProductoViewHolder(@NonNull View itemView) {
             super(itemView);
-
             myLinearLayoutCeldaDelProducto = itemView.findViewById(R.id.ItemList_LinearLayout_Parent);
             myTextViewNombreDelProducto = itemView.findViewById(R.id.ItemList_TextView_NombreDelProducto);
             myTextViewPrecioDelProducto = itemView.findViewById(R.id.ItemList_TextView_PrecioDelProducto);

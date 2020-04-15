@@ -28,6 +28,11 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        configuroNavigationView();
+
+    }
+
+    private void configuroNavigationView() {
         final DrawerLayout myDrawerLayout = findViewById(R.id.MainActivity_DrawerLayout_Parent);
 
         findViewById(R.id.MainActivity_ImageView_Menu).setOnClickListener(new View.OnClickListener() {
